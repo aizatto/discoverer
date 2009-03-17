@@ -4,11 +4,15 @@ end
 
 class Discoverer
   attr_reader :name, :description, :image_url, :parser
-  attr_reader :images, :videos, :filtered, :uri, :discovered_thumbnail, :response, :parser
+  attr_reader :images, :videos, :filtered, :discovered_thumbnail, :response, :parser
   attr_accessor :url
 
   def initialize(url)
     @url = url
+  end
+
+  def uri
+    URI.parse(@url)
   end
 
   def valid_uri_scheme?(url)

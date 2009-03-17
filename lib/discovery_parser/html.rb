@@ -15,7 +15,7 @@ module DiscoveryParser
       return image_path if image_path.nil? || image_path =~ /^http(s)?:\/\//
 
       prefix = "#{uri.scheme}://#{uri.host}"
-      image_path[0..0] == '/' ? "#{prefix}#{src}" : "#{prefix}#{uri.request_uri}#{src}"
+      image_path[0..0] == '/' ? "#{prefix}#{image_path}" : "#{prefix}#{uri.request_uri}#{image_path}"
     end
 
     def initialize(discoverer)
