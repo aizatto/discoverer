@@ -71,7 +71,7 @@ class Discoverer
         return
       end
     when ::DiscoveryParser::Image
-      @parser.response_body
+      @response.body
     end
 
     stringio = StringIO.new(image_content)

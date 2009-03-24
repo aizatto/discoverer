@@ -9,5 +9,9 @@ module DiscoveryParser
       super(discoverer)
       @images = [@discoverer.url]
     end
+
+    def parse
+      # skip
+    end
   end
 end
