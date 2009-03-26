@@ -28,7 +28,7 @@ module DiscoveryMethod
 
     def discover_thumbnail
       tag = (@doc/"link[@rel=image_src]").first
-      thumbnail = tag.get_attribute('image_src') if tag
+      thumbnail = tag.get_attribute('href') if tag
       @discovered_thumbnail = (thumbnail && @discoverer.valid_uri_scheme?(thumbnail) ? thumbnail : nil)
     end
   end
