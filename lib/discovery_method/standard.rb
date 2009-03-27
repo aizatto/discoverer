@@ -3,8 +3,8 @@ module DiscoveryMethod
 #    SELECTOR_REGEX = /^http(s)?:\/\//
     SELECTOR_REGEX = //
 
-    def initialize(doc)
-      @doc = doc
+    def initialize(parser, doc)
+      @parser, @doc = parser, doc
     end
 
     def discover_name
@@ -29,7 +29,7 @@ module DiscoveryMethod
     def discover_thumbnail
       tag = (@doc/"link[@rel=image_src]").first
       thumbnail = tag.get_attribute('href') if tag
-      @discovered_thumbnail = (thumbnail && @discoverer.valid_uri_scheme?(thumbnail) ? thumbnail : nil)
+      @discovered_thumbnail = (thumbnail && @parser.discoverer.valid_uri_scheme?(thumbnail) ? thumbnail : nil)
     end
   end
 end

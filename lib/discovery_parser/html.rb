@@ -50,7 +50,7 @@ module DiscoveryParser
       end
 
       def discover
-        dm = select_discovery_method.new(@doc)
+        dm = select_discovery_method.new(self, @doc)
         @name        = dm.discover_name
         @description = dm.discover_description
         @image_url   = absolute_image_path(dm.discover_thumbnail)
