@@ -3,6 +3,9 @@
 end
 
 class Discoverer
+  class InvalidURIScheme < StandardError
+  end
+
   attr_reader :name, :description, :image_url, :parser
   attr_reader :images, :videos, :filtered, :discovered_thumbnail, :response, :parser
   attr_accessor :url
